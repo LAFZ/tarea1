@@ -15,7 +15,29 @@ public class GUI_InformacionCursos extends javax.swing.JPanel {
         arreglo[2]=this.jt_Creditos.getText();
         return arreglo;
     }
-
+    
+    public String devolverSigla()
+    {
+        return this.jt_Siglas.getText();
+    }
+   public String devolverNombre()
+    {
+        return this.jt_NombreDelCurso.getText();
+    }
+   public String devolverCreditos()
+    {
+        return this.jt_Creditos.getText();
+    }
+    public void mostrarInformacion(String[] arreglo){
+        this.jt_NombreDelCurso.setText(arreglo[0]);
+        this.jt_Creditos.setText(arreglo[1]);
+    }
+    public void limpiar()
+    {
+        this.jt_Siglas.setText("");
+        this.jt_Creditos.setText("");
+        this.jt_NombreDelCurso.setText("");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,15 +58,15 @@ public class GUI_InformacionCursos extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Nombre del Curso: ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         jLabel3.setText("Siglas: ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jLabel4.setText("Creditos: ");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
-        add(jt_NombreDelCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 270, -1));
-        add(jt_Siglas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 270, -1));
+        add(jt_NombreDelCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 270, -1));
+        add(jt_Siglas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 270, -1));
 
         jt_Creditos.setToolTipText("");
         add(jt_Creditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 270, -1));

@@ -24,7 +24,27 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
     public String[] devolverInformacion(){
         return this.gUI_InformacionCursos1.devolverInformacion();
     }
-
+    
+    public String devolverSigla()
+    {
+        return this.gUI_InformacionCursos1.devolverSigla();
+    }
+    public String devolverNombre()
+    {
+        return this.gUI_InformacionCursos1.devolverNombre();
+    }
+    public String devolverCreditos()
+    {
+        return this.gUI_InformacionCursos1.devolverCreditos();
+    }
+    public void mostrarInformacion(String[] arreglo)
+    {
+        this.gUI_InformacionCursos1.mostrarInformacion(arreglo);
+    }
+    public void limpiar()
+    {
+        this.gUI_InformacionCursos1.limpiar();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

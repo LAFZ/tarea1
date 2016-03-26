@@ -26,6 +26,21 @@ public class GUI_InformacionEstudiantes extends javax.swing.JPanel {
         arreglo[1]=this.jt_NombreCompleto.getText();
         return arreglo;
     }
+    
+    public String devolverCarnet(){
+        return this.jt_Carnet.getText();
+    }
+    public String devolverNombre(){
+        return this.jt_NombreCompleto.getText();
+    }
+    public void mostrarInformacion(String[] arreglo){
+        this.jt_NombreCompleto.setText(arreglo[0]);
+    }
+    public void limpiar()
+    {
+        this.jt_Carnet.setText("");
+        this.jt_NombreCompleto.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

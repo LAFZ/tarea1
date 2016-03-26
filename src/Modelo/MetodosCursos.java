@@ -20,4 +20,38 @@ public class MetodosCursos {
         temporal=this.arrayCursos.get(0);
         System.out.println(temporal.getInformacion());
     }
+    
+    public String[] consultarCurso(String sigla)
+    {
+        String arregloDatos[]=new String[2];
+        for(int i=0;i<arrayCursos.size();i++)
+        {
+           if(arrayCursos.get(i).getSiglas().equals(sigla))
+                {
+                    arregloDatos[0]=arrayCursos.get(i).getNombreDelCurso();
+                    arregloDatos[1]=arrayCursos.get(i).getCreditos();
+                }
+        }
+        return arregloDatos;
+    }
+    public void modificarCurso(String sigla, String nombre, String credito){
+    for(int i=0;i<arrayCursos.size();i++)
+        {
+           if(arrayCursos.get(i).getSiglas().equals(sigla))
+            {
+                this.arrayCursos.get(i).setNombreDelCurso(nombre);
+                this.arrayCursos.get(i).setCreditos(credito);
+            }
+        }
+    }
+    public void eliminarCurso (String sigla)
+    {
+        for(int i=0;i<arrayCursos.size();i++)
+        {
+           if(arrayCursos.get(i).getSiglas().equals(sigla))
+            {
+               this.arrayCursos.remove(i);
+            }
+        }
+    }
 }
