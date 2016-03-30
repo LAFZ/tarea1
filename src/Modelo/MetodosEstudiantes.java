@@ -7,10 +7,12 @@ import java.util.ArrayList;
 public class MetodosEstudiantes {
     
     ArrayList <Estudiantes> arrayEstudiantes;
+    String arregloInformacion[];
     
     public MetodosEstudiantes()
     {
         arrayEstudiantes=new ArrayList<Estudiantes>();
+        arregloInformacion=new String[1];
     }
     public void agregarEstudiante(String informacion[]){
         Estudiantes temporal=new Estudiantes(informacion[0],informacion[1]);
@@ -21,17 +23,17 @@ public class MetodosEstudiantes {
         temporal=arrayEstudiantes.get(0);
         System.out.println(temporal.getInformacion());
     }
-    public String[] consultarEstudiante(String carnet)
+    public boolean consultarEstudiante(String carnet)
     {
-        String arregloDatos[]=new String[1];
+        boolean itemEncontrado=false;
         for(int i=0;i<arrayEstudiantes.size();i++)
         {
             if(this.arrayEstudiantes.get(i).getCarnet().equals(carnet)){
-            arregloDatos[0]=arrayEstudiantes.get(i).getNombre();
-            }
-            
+            arregloInformacion[0]=arrayEstudiantes.get(i).getNombre();
+            itemEncontrado=true;
+            }     
         }
-        return arregloDatos;
+        return itemEncontrado;
     }
     public void modificarEstudiante(String carnet, String nombre){
         
@@ -50,4 +52,20 @@ public class MetodosEstudiantes {
                 }
         }
     }
+    public String[] getArregloInformacion(){
+        return arregloInformacion;
+    }
 }
+//public String[] consultarEstudiante(String carnet)
+//    {
+//        String arregloDatos[]=new String[1];
+//        for(int i=0;i<arrayEstudiantes.size();i++)
+//        {
+//            if(this.arrayEstudiantes.get(i).getCarnet().equals(carnet)){
+//            arregloDatos[0]=arrayEstudiantes.get(i).getNombre();
+//            
+//            }
+//            
+//        }
+//        return arregloDatos;
+//    }

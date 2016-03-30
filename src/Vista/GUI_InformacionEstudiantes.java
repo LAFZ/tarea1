@@ -1,23 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vista;
 
-/**
- *
- * @author Hogar
- */
-public class GUI_InformacionEstudiantes extends javax.swing.JPanel {
+import Controlador.Controlador_FRM_MantenimientoEstudiantes;
 
-    /**
-     * Creates new form GUI_InformacionEstudiantes
-     */
+
+public class GUI_InformacionEstudiantes extends javax.swing.JPanel {
+    
+    Controlador_FRM_MantenimientoEstudiantes controlador;
+    
     public GUI_InformacionEstudiantes() {
         initComponents();
     }
-    
+    public void agregarEventos(Controlador_FRM_MantenimientoEstudiantes controlador)
+    {
+        this.controlador=controlador;
+    }
     public String[] devolverInformacion()
     {
         String arreglo[];
@@ -41,7 +38,22 @@ public class GUI_InformacionEstudiantes extends javax.swing.JPanel {
         this.jt_Carnet.setText("");
         this.jt_NombreCompleto.setText("");
     }
-
+    public void estadoInicial(){
+        this.jt_Carnet.setEnabled(true);
+        this.jt_NombreCompleto.setEnabled(false);
+    }
+    public void deshabilitarCarnet(){
+        this.jt_Carnet.setEnabled(false);
+    }
+    
+    public void habilitarOpciones(){
+        this.jt_Carnet.setEnabled(false);
+        this.jt_NombreCompleto.setEnabled(true);
+    }
+    public void habilitarAgregar(){
+        this.jt_Carnet.setEnabled(true);
+        this.jt_NombreCompleto.setEnabled(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,12 +76,26 @@ public class GUI_InformacionEstudiantes extends javax.swing.JPanel {
 
         jLabel2.setText("Nombre completo: ");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        jt_Carnet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jt_CarnetKeyPressed(evt);
+            }
+        });
         add(jt_Carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 240, -1));
         add(jt_NombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 240, -1));
 
         jl_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo 2.png"))); // NOI18N
         add(jl_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jt_CarnetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jt_CarnetKeyPressed
+        System.out.println("Codigo de la tecla: "+evt.getKeyCode());
+        if(evt.getKeyCode()==10)
+        {
+            controlador.buscar();
+        }
+    }//GEN-LAST:event_jt_CarnetKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

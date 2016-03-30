@@ -6,8 +6,11 @@ import java.util.ArrayList;
 
 public class MetodosCursos {
     ArrayList <Cursos> arrayCursos;
+    String arregloInformacion[];
+    
     public MetodosCursos(){
         arrayCursos=new ArrayList <Cursos>();
+        arregloInformacion=new String[2];
     }
     
     public void agregarCurso(String informacion[]){
@@ -21,18 +24,19 @@ public class MetodosCursos {
         System.out.println(temporal.getInformacion());
     }
     
-    public String[] consultarCurso(String sigla)
+    public boolean consultarCurso(String sigla)
     {
-        String arregloDatos[]=new String[2];
+        boolean itemEncontrado=false;
         for(int i=0;i<arrayCursos.size();i++)
         {
            if(arrayCursos.get(i).getSiglas().equals(sigla))
                 {
-                    arregloDatos[0]=arrayCursos.get(i).getNombreDelCurso();
-                    arregloDatos[1]=arrayCursos.get(i).getCreditos();
+                    arregloInformacion[0]=arrayCursos.get(i).getNombreDelCurso();
+                    arregloInformacion[1]=arrayCursos.get(i).getCreditos();
+                    itemEncontrado=true;
                 }
         }
-        return arregloDatos;
+        return itemEncontrado;
     }
     public void modificarCurso(String sigla, String nombre, String credito){
     for(int i=0;i<arrayCursos.size();i++)
@@ -53,5 +57,8 @@ public class MetodosCursos {
                this.arrayCursos.remove(i);
             }
         }
+    }
+    public String[] getArregloInformacion(){
+        return arregloInformacion;
     }
 }

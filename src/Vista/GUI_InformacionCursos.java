@@ -1,11 +1,17 @@
 
 package Vista;
 
-public class GUI_InformacionCursos extends javax.swing.JPanel {
+import Controlador.Controlador_FRM_MantenimientoCursos;
 
+public class GUI_InformacionCursos extends javax.swing.JPanel {
+    
+    Controlador_FRM_MantenimientoCursos controlador;
     
     public GUI_InformacionCursos() {
         initComponents();
+    }
+    public void agregarEventos(Controlador_FRM_MantenimientoCursos controlador){
+        this.controlador=controlador;
     }
     public String[] devolverInformacion(){
         String arreglo[];
@@ -38,6 +44,24 @@ public class GUI_InformacionCursos extends javax.swing.JPanel {
         this.jt_Creditos.setText("");
         this.jt_NombreDelCurso.setText("");
     }
+    public void estadoInicial(){
+        this.jt_Siglas.setEnabled(true);
+        this.jt_NombreDelCurso.setEnabled(false);
+        this.jt_Creditos.setEnabled(false);
+    }
+    public void deshabilitarSigla(){
+        this.jt_Siglas.setEnabled(false);
+    }
+    public void habilitarOpciones(){
+        this.jt_Siglas.setEnabled(false);
+        this.jt_NombreDelCurso.setEnabled(true);
+        this.jt_Creditos.setEnabled(true);
+    }
+    public void habilitarAgregar(){
+        this.jt_Siglas.setEnabled(true);
+        this.jt_NombreDelCurso.setEnabled(true);
+        this.jt_Creditos.setEnabled(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,6 +90,12 @@ public class GUI_InformacionCursos extends javax.swing.JPanel {
         jLabel4.setText("Creditos: ");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
         add(jt_NombreDelCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 270, -1));
+
+        jt_Siglas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jt_SiglasKeyPressed(evt);
+            }
+        });
         add(jt_Siglas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 270, -1));
 
         jt_Creditos.setToolTipText("");
@@ -74,6 +104,12 @@ public class GUI_InformacionCursos extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo 2.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jt_SiglasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jt_SiglasKeyPressed
+        if(evt.getKeyCode()==10){
+            controlador.buscar();
+        }
+    }//GEN-LAST:event_jt_SiglasKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Controlador_FRM_MantenimientoCursos;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,8 +18,11 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
     public FRM_MantenimientoCursos() {
         initComponents();
         setVisible(false);
+        this.setLocation(410,275);
         controlador_FRM_MantenimientoCursos=new Controlador_FRM_MantenimientoCursos(this);
         this.gUI_Botones1.agregarEventos1(controlador_FRM_MantenimientoCursos);
+        this.gUI_InformacionCursos1.agregarEventos(controlador_FRM_MantenimientoCursos);
+        estadoInicial();
     }
     
     public String[] devolverInformacion(){
@@ -44,6 +48,24 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
     public void limpiar()
     {
         this.gUI_InformacionCursos1.limpiar();
+    }
+    public void estadoInicial(){
+        this.gUI_Botones1.estadoInicial();
+        this.gUI_InformacionCursos1.estadoInicial();
+    }
+    public void deshabilitarSigla(){
+        this.gUI_InformacionCursos1.deshabilitarSigla();
+    }
+    public void habilitarOpciones(){
+        this.gUI_Botones1.habilitarOpciones();
+        this.gUI_InformacionCursos1.habilitarOpciones();
+    }
+    public void mostrarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+    public void habilitarAgregar(){
+        this.gUI_Botones1.habilitarAgregar();
+        this.gUI_InformacionCursos1.habilitarAgregar();
     }
     /**
      * This method is called from within the constructor to initialize the form.
